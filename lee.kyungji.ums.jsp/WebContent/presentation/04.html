@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>Bootstrap</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+$(function(){
+	$("#del1").click(function(){
+		$("#tr1").remove();
+	});
+	$("#del2").click(function(){
+		$("#tr1").remove();
+	});
+});
+</script>
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="jumbotron info">
+			<h1>User ManageMent System</h1>
+		</div>
+
+
+			<a href="./01.html" class="btn btn-primary btn-lg" ><span class="glyphicon glyphicon-list"></span> 목록</a>
+			<a href="./02.html" class="btn btn-primary btn-lg" ><span class="glyphicon glyphicon-plus"></span> 등록</a>
+			<a href="./03.html" class="btn btn-primary btn-lg" ><span class="glyphicon glyphicon-refresh"></span> 수정</a>
+			<a href="./04.html" class="btn btn-primary btn-lg active" ><span class="glyphicon glyphicon-trash"></span> 탈퇴</a>
+
+			<div id="delete">
+				<h2>사용자탈퇴</h2>
+				<form class="form-inline">
+				</form>
+			</div>
+
+
+			<div id="home">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>번호</th>
+							<th>이름</th>
+							<th>가입날짜</th>
+						</tr>
+					</thead>
+					<tbody id="userTable">
+						<tr id="tr1">						
+							<td>1</td>
+							<td>유재석</td>
+							<td>2012-12-15</td>
+							<td><a id="del1" class="btn btn-danger">삭제</a></td>
+						</tr>
+						<tr id="tr1">
+							<td>2</td>
+							<td>박명수</td>
+							<td>2012-12-15</td>
+							<td><a id="del2" class="btn btn-danger">삭제</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+</div>
+<script>
+$(function(){
+	
+});
+</script>
+</body>
+</html>

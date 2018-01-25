@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>Bootstrap</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+$(function(){
+	$("#update").click(function(){
+		var num= $("#userNum").val();
+		var name=$("#userName").val();
+		
+		if($("#num1").html()==num){
+			$("#id1").html(name);
+		}
+		if($("#num2").html()==num){
+			$("#id2").html(name);
+		}
+	})
+});
+</script>
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="jumbotron info">
+			<h1>User ManageMent System</h1>
+		</div>
+
+
+			<a href="./01.html" class="btn btn-primary btn-lg" ><span class="glyphicon glyphicon-list"></span> 목록</a>
+			<a href="./02.html" class="btn btn-primary btn-lg" ><span class="glyphicon glyphicon-plus"></span> 등록</a>
+			<a href="./03.html" class="btn btn-primary btn-lg active" ><span class="glyphicon glyphicon-refresh"></span> 수정</a>
+			<a href="./04.html" class="btn btn-primary btn-lg" ><span class="glyphicon glyphicon-trash"></span> 탈퇴</a>
+
+
+
+			<div id="update">
+				<h2>사용자수정</h2>
+				<form class="form-inline">
+					<div class="form-group">
+						<label for="userNum">userNum:</label> <input type="text"
+							class="form-control" id="userNum" placeholder="수정할 번호를 적으시오">
+						<label for="name">name:</label><input type="text" class="form-control" id="userName"
+							placeholder="수정할 이름을 적으시오">
+					</div>
+					<a id="update" class="btn btn-default">수정</a>
+				</form>
+			</div>
+
+			<div id="home">
+				<h2>사용자목록</h2>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>번호</th>
+							<th>이름</th>
+							<th>가입날짜</th>
+						</tr>
+					</thead>
+					<tbody id="userTable">
+					<tr id="rd1">						
+						<td id="num1">1</td>
+						<td id="id1">유재석</td>
+						<td>2012-12-15</td>
+					</tr>
+					<tr id="rd2">
+						<td id="num2">2</td>
+						<td id="id2">박명수</td>
+						<td>2012-12-15</td>
+					</tr>
+				</tbody>
+				</table>
+			</div>
+
+</div>
+<script>
+$(function(){
+	var regDate=new Date(); //현재날짜
+	var day=regDate.getDate(); //일
+	var mon=regDate.getMonth()+1; //월
+	var year=regDate.getFullYear(); //년
+	
+	var home=$("#home");
+	var add=$("#add");
+	var update=$("#update");
+	var del=$("#delete");
+	
+	 $("a:eq(0)").click(function(){
+		 allHide();
+		 home.show(1000);
+	 });
+	 
+	 $("a:eq(1)").click(function(){
+		 allHide();
+		 add.show(1000);
+		 home.show(1000);
+	 });
+	 
+	 $("a:eq(2)").click(function(){
+		 allHide();
+		 update.show(1000);
+		 home.show(1000);
+	 });
+	 
+	 $("a:eq(3)").click(function(){
+		 allHide();
+		 del.show(1000);
+		 home.show(1000);
+	 });
+	 var userNumSeq=1;
+	 $("a:eq(4)").click(function(){
+		 var name = $("#name");
+		 
+		 var row= '<tr>'
+	         +'<td id="number" value="1">'+(userNumSeq++)+'</td>'
+	         +'<td>'+name.val()+'</td>'
+	         +'<td>'+year+'-'+mon+'-'+day+'</td>'
+	     	 +'</tr>';
+	     	 
+	     	$("#tbody").append(row);
+	     	
+	     	name.val("");	     	
+	 });
+	
+	 $("a:eq(5)").click(function(){
+		 
+		 var number =$("#userNum")
+		 var name = $("#name");
+		 
+		 var row= $("a:eq(4)")
+	         +'<td>'+userNum.val+'</td>'
+	         +'<td>'+name.val()+'</td>'
+	         +'<td>'+year+'-'+mon+'-'+day+'</td>'
+	     	 
+	     	 
+	     	$("#tbody").append(row);
+	     	
+	     	name.val("");
+	     	userNum.val(" ");
+	 });
+
+			 
+		 
+	
+	 
+});
+</script>
+</body>
+</html>
